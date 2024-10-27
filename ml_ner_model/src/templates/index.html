@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Name Extraction</title>
+</head>
+<body>
+    <h1>Извлечение Названий Продуктов</h1>
+    <form method="POST">
+        <label for="urls">Введите ссылки (каждая ссылка на новой строке):</label><br>
+        <textarea id="urls" name="urls" rows="5" cols="50"></textarea><br><br>
+        <button type="submit">Извлечь Названия</button>
+    </form>
+
+    {% if results %}
+        <h2>Результаты:</h2>
+        <ul>
+            {% for url, products in results.items() %}
+                <li><strong>{{ url }}:</strong> {{ products }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
